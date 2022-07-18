@@ -3,7 +3,7 @@
 Initalize operator:
 ```bash
 operator-sdk init \
-  --domain shubhamtatvamasi.com \
+  --domain spishu.hashnode.dev \
   --plugins helm
 ```
 
@@ -22,7 +22,7 @@ make install
 
 Docker image:
 ```bash
-export IMG=shubhamtatvamasi/nginx-operator:0.0.1
+export IMG=shubhamkumar89/nginx-operator:1.2.2
 ```
 
 Build and push operator docker image:
