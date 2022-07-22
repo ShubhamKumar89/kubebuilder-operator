@@ -1,41 +1,52 @@
 # nginx-operator
 
-Initalize operator:
+## Initalize operator:
 ```bash
 operator-sdk init \
-  --domain spishu.hashnode.dev \
-  --plugins helm
+ --domain <domain-name> \
+ --plugins <deploy-in>
+
+# e.g. operator-sdk init \
+#        --domain www.example.com \
+#        --plugins helm */
 ```
 
-Create an API:
+## Create API:
 ```bash
 operator-sdk create api \
-  --group demo \
-  --version v1alpha1 \
-  --kind Nginx
+  --group <group-name> \
+  --version <versison> \
+  --kind <type-of-object>
+  
+# e.g. operator-sdk create api \
+#        --group demo \
+#        --version v1alpha1 \
+#        --kind Nginx */
 ```
 
-Install CRD:
+## Install CRD:
 ```bash
 make install
 ```
 
-Docker image:
+## Docker image:
 ```bash
-export IMG=shubhamkumar89/nginx-operator:1.2.2
+export IMG=<docker-hub-account-name>/<image-name>:<tag>
+# e.g. export IMG=shubhamkumar89/nginx-operator:1.2.2
 ```
 
-Build and push operator docker image:
+## Build and push operator docker image:
 ```bash
 make docker-build docker-push IMG=${IMG}
 ```
 
-Deploy operator:
+## Deploy Operator:
 ```bash
 make deploy IMG=${IMG}
 ```
 
-Install Custom Resource:
+## Install Custom Resource:
 ```bash
-kubectl apply -f config/samples/demo_v1alpha1_nginx.yaml
+kubectl apply -f config/samples/<demo-yaml-file>
+# e.g. kubectl apply -f config/samples/demo_v1alpha1_nginx.yaml
 ```
